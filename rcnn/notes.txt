@@ -1,0 +1,34 @@
+
+In transfer learning, we usually separate the feature extractor and the classifier or head. 
+For R-CNN implementation we will use the base/backbone or feature ectractor and also the classifier layers of AlexNet. 
+The classifier layers are the last three fully connected layers of AlexNet. 
+In this implementation we will neglect the last layer of the classifier, 
+since we will train our own SVM and Ridge regression models for object detection.
+
+AlexNet Classifier Layers before modification:
+Sequential(
+  (0): Dropout(p=0.5, inplace=False)
+  (1): Linear(in_features=9216, out_features=4096, bias=True)
+  (2): ReLU(inplace=True)
+  (3): Dropout(p=0.5, inplace=False)
+  (4): Linear(in_features=4096, out_features=4096, bias=True)
+  (5): ReLU(inplace=True)
+  (6): Linear(in_features=4096, out_features=1000, bias=True)
+)
+
+AlexNet Classifier Layers after modification:
+Sequential(
+  (0): Dropout(p=0.5, inplace=False)
+  (1): Linear(in_features=9216, out_features=4096, bias=True)
+  (2): ReLU(inplace=True)
+  (3): Dropout(p=0.5, inplace=False)
+  (4): Linear(in_features=4096, out_features=4096, bias=True)
+  (5): ReLU(inplace=True)
+)
+
+
+
+Number of images found: 11321
+Mean of the dataset: [0.45640955 0.43670454 0.40322489]
+Std of the dataset: [0.270317   0.26696967 0.2804745 ]
+Time taken to compute mean and std: 688.44 seconds
